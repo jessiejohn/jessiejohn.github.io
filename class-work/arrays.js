@@ -69,6 +69,9 @@ console.log("Question 5"+" : " + increaseByOne)
  * Using the array from Question 5, find the average of the numbers in the array
  * (average = sum of all numbers/number of numbers). Store the average in q6.
  */
-
-
-
+var numbers = [1,2,3,4,5]
+var sum = 0
+numbers.forEach (function (number){
+  sum = sum + number
+})
+console.log("Question 6"+" : " + sum / numbers.length)
