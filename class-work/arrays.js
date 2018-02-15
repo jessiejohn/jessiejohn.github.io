@@ -12,7 +12,7 @@
  */
 
 var q1 = ["image1.png", "image2.png", "image3.png"]
-console.log("Question 1"+" : " +  q1)
+console.log("Question 1 : "+ +  q1)
 
 /**
  * Question 2
@@ -21,7 +21,7 @@ console.log("Question 1"+" : " +  q1)
  */
 
 var q2 = q1[0]
-console.log("Question 2"+" : " + q2)
+console.log("Question 2 : "+ q2)
 
 /**
  * Question 3
@@ -30,7 +30,7 @@ console.log("Question 2"+" : " + q2)
  */
 
 var q3 = q1.length
-console.log("Question 3"+" : " + q3)
+console.log("Question 3 : " + q3)
 
 /**
  * Question 4
@@ -40,7 +40,7 @@ console.log("Question 3"+" : " + q3)
 
 
 var q4 = q1[q1.length -1]
-console.log("Question 4"+" : " + q4)
+console.log("Question 4 : "+ q4)
 
 // ____________________________________________________________________________
 
@@ -62,7 +62,7 @@ var numbers = [1,2,3,4];
     return num + 1
   })
 
-console.log("Question 5"+" : " + increaseByOne)
+console.log("Question 5 : " + increaseByOne)
 
 /**
  * Question 6
@@ -74,4 +74,4 @@ var sum = 0
 numbers.forEach (function (number){
   sum = sum + number
 })
-console.log("Question 6"+" : " + sum / numbers.length)
+console.log("Question 6 : " + sum / numbers.length)
