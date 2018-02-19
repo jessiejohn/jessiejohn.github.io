@@ -1,40 +1,113 @@
 <!DOCTYPE html>
 <head>
-  <title>Jessie John</title>
+  <title>Restaurant Wishlist</title>
 
   <style>
-    body {
-      text-align: center;
-      background: url("https://images.template.net/wp-content/uploads/2015/11/25190558/Plain-Dark-Blue-Background-Images-Download.jpg");
-      background-size: cover;
-      color: gold;
-      font-family: helvetica;
+
+    header {
+    background-image: url("Pictures/NYCskyline.png");
+    text-align: center;
+    background-size:cover;
+    color:white;
+    height:300px;
     }
+
+    h1{
+      font-size: 40px;
+      padding-top: 180px;
+      }    
 
     p {
-      font-size:22px;
-      padding: 50px;
+      font-size:20px;
+      padding: 5px;
     }
 
-    img { border-radius: 250px;
-    	height: 250px;
-      width: 250px;
- 
-    	}
-    
+    ul {
+      font-size:20px;
+      padding: 5px;
+    }
+
+    img { 
+
+    	height: 750px;
+      width: 750px;
+    }
+
+    div {
+      width:100%;
+      padding-top: 40px;
+    }
+
+    .left {
+      float:left;
+      width:30%;
+      height:750px;
+      background: grey;
+    }
+
+    .right {
+      float:right;
+      width:70%;
+      height:750px;
+      }    
+
+    @media (max-width: 500px) {
+      h1 {
+      font-size: 36px;
+    }
+      p {
+      font-size: 20px;
+    }
+
+    ul {
+      font-size: 20px;
+    }
+
 </style>
 
 </head>
 
 <body>
 
-  <img src="Pictures/Jess.jpg" alt=image of Jessie>
+<header> 
+
+<h1>Restaurant List </h1>
+
+</header>
+
+<div>
+
+<div class = 'left'>
   
-  <p>Hi! I am Jessie, a Programmatic Media Specialist. </p>
+  <p> Create a wishlist of restaurants you would like to visit with three easy steps </p>
 
-  <p> To find out more visit my profile 
-  <a href = https://www.linkedin.com/in/jessie-john/" _blank"> here </a>
-</p> 
+  <p>1. Search restaurants you wish to go to </p>
 
+  <input type = "Restaurant" placeholder ="enter name of restaurant">
+
+  <button> Search </button>
+
+  <p> 2. Mark restaurant on the map. All marked restaurants will appear below </p>  
+  
+  <p> 3. When out and about, look for the restaurants by switching on your GPS and looking at the map to see marked spots </p>
+
+  <p> Your wishlist </p>
+
+  <ul>
+    <li> Restuarant 1 </li>
+    <li> Restuarant 2 </li>
+    <li> Restuarant 3 </li>
+    <li> Restuarant 4 </li>
+    <li> Restuarant 5 </li>
+
+</div>
+
+<div class = 'right'>
+
+<img src='https://upload.wikimedia.org/wikipedia/en/thumb/2/23/GoogleMaps.svg/1200px-GoogleMaps.svg.png'>
+
+</div>
+
+</div>
 
 </body>

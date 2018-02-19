@@ -38,9 +38,6 @@ function whatCanYouDo (age)
 
 // Change this variable's value to generate different responses from the whatCanYouDo function
 var age = 5;
-
-
-
 // We haven't seen this yet, but this is how we call (or, invoke) a function
 whatCanYouDo(age);
 
