@@ -35,21 +35,14 @@ function startGame(userChoice) {
 // Then, randomly generate a whole number between 0 and 2
 // Use this randomly generated number to pull a value from the array (eg myArray[ranomNum])
 // Ensure you return this value!
-var options = ['rock', 'paper', 'scissors']
+
+var options = ['rock', 'paper', 'scissors'];
 
 function generateCPUChoice () {
-	var randomNumber = Math.floor(Math.random() * 3)
-	console.log (randomNumber)
-	if (generateCPUChoice = 0) {
-		conosle.log ("Rock")
-	}
-	else (generateCPUChoice = 1) {
-		conosle.log ("paper")
-	}
+	var randomNumber = Math.floor(Math.random() * options.length);
+	return (options[randomNumber]);
 }
-
-
-
+	console.log (generateCPUChoice ());
 
 
 // 2. The function compare takes two strings (userChoice and cpuChoice) that represent the user's and cpu's respective choices: 'rock', 'paper', or 'scissors'
@@ -57,6 +50,35 @@ function generateCPUChoice () {
 // For example, if userChoice === 'rock' and cpuChoice === 'scissors', then 'user' should be returned
 // Hint: use if/else/ele if logic to compare the values and return a winner
 function compare(userChoice, cpuChoice) {
+
+	if (userChoice === rock && cpuChoice === rock) {
+		console.log ("Tie. Repeat")
+	}
+	else if (userChoice === rock && cpuChoice === paper) {
+		console.log ("CPU Won")
+	}
+	else if (userChoice === rock && cpuChoice === scisssors) {
+		console.log ("User won")
+	}
+	else if (userChoice === paper && cpuChoice === paper) {
+		console.log ("Tie. Repeat")
+	}
+	else if (userChoice === paper && cpuChoice === scissors) {
+		console.log ("CPU Won")
+	}
+	else if (userChoice === paper && cpuChoice === rock) {
+		console.log ("User won")
+	}
+	else if (userChoice === scissors && cpuChoice === scissors) {
+		console.log ("Tie. Repeat")
+	}
+	else if (userChoice === scissors && cpuChoice === rock) {
+		console.log ("CPU Won")
+	}
+	else (userChoice === scissors && cpuChoice === paper) {
+		console.log ("User won")
+	}
+
 }
 
 
