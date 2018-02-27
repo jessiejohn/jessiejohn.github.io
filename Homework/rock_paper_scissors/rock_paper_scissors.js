@@ -50,24 +50,24 @@ console.log (generateCPUChoice ());
 // Hint: use if/else/ele if logic to compare the values and return a winner
 function compare(userChoice, cpuChoice) {
 	
-	if (userChoice === rock && cpuChoice === paper) {
+	if (userChoice === 'rock' && cpuChoice === 'paper') {
 		console.log ("CPU Won")
 	}
-	else if (userChoice === rock && cpuChoice === scisssors) {
+	else if (userChoice === 'rock' && cpuChoice === 'scisssors') {
 		console.log ("User won")
 	}
 	
-	else if (userChoice === paper && cpuChoice === scissors) {
+	else if (userChoice === 'paper' && cpuChoice === 'scissors') {
 		console.log ("CPU Won")
 	}
-	else if (userChoice === paper && cpuChoice === rock) {
+	else if (userChoice === 'paper' && cpuChoice === 'rock') {
 		console.log ("User won")
 	}
 	
-	else if (userChoice === scissors && cpuChoice === rock) {
+	else if (userChoice === 'scissors' && cpuChoice === 'rock') {
 		console.log ("CPU Won")
 	}
-	else if (userChoice === scissors && cpuChoice === paper) {
+	else if (userChoice === 'scissors' && cpuChoice === 'paper') {
 		console.log ("User won")
 	}
 	else {
