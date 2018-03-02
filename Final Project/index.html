@@ -1,69 +1,9 @@
 <!DOCTYPE html>
+
 <head>
-  <title>Restaurant Wishlist</title>
-
-  <style>
-
-    header {
-    background-image: url("Pictures/NYCskyline.png");
-    text-align: center;
-    background-size:cover;
-    color:white;
-    height:300px;
-    }
-
-    h1{
-      font-size: 40px;
-      padding-top: 180px;
-      }    
-
-    p {
-      font-size:20px;
-      padding: 5px;
-    }
-
-    ul {
-      font-size:20px;
-      padding: 5px;
-    }
-
-    img { 
-
-    	height: 750px;
-      width: 750px;
-    }
-
-    div {
-      width:100%;
-      padding-top: 40px;
-    }
-
-    .left {
-      float:left;
-      width:30%;
-      height:750px;
-      background: grey;
-    }
-
-    .right {
-      float:right;
-      width:70%;
-      height:750px;
-      }    
-
-    @media (max-width: 500px) {
-      h1 {
-      font-size: 36px;
-    }
-      p {
-      font-size: 20px;
-    }
-
-    ul {
-      font-size: 20px;
-    }
-
-</style>
+  
+<link href="style.css" rel='stylesheet'>
+<title>Restaurant Wishlist</title>
 
 </head>
 
@@ -102,12 +42,11 @@
 
 </div>
 
-<div class = 'right'>
+<div id="map"> </div>
 
-<img src='https://upload.wikimedia.org/wikipedia/en/thumb/2/23/GoogleMaps.svg/1200px-GoogleMaps.svg.png'>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhC2C6knt8nI3qJ_HUJdqGLqjD6ZXEpqk"></script>
 
-</div>
+<script src='script.js'></script>
 
-</div>
 
 </body>
