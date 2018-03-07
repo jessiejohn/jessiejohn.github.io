@@ -41,20 +41,7 @@ ul {
 
 #map {
 	height: 800px;
-	width:1250px;
+	width:1200px;
 	position: relative;
 }   
-
- @media (max-width: 500px) {
-    h1 {
-    	font-size: 36px;
-    }
-    p {
-    	font-size: 20px;
-    }
-
-    ul {
-    	font-size: 20px;
-    }
- }
 

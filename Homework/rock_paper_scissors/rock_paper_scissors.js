@@ -24,6 +24,7 @@ init();
 
 function startGame(userChoice) {
 	var cpuChoice = generateCPUChoice();
+	console.log('The CPU chose: ' + cpuChoice);
 	var winner = compare(userChoice, cpuChoice);
 	console.log(winner + ' is the winner!');
 }
@@ -40,9 +41,8 @@ var options = ['rock', 'paper', 'scissors'];
 
 function generateCPUChoice () {
 	var randomNumber = Math.floor(Math.random() * options.length);
-	return (options[randomNumber]);
+	return options[randomNumber];
 }
-console.log (generateCPUChoice ());
 
 // 2. The function compare takes two strings (userChoice and cpuChoice) that represent the user's and cpu's respective choices: 'rock', 'paper', or 'scissors'
 // This function should compare the two choices, and return a winner
