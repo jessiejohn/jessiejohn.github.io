@@ -69,3 +69,27 @@ function addNewItem () {
 	}
 } 
 
+// Removes the li you click on
+/*$(document).on('click', 'li', function () {
+    $(this).remove()
+  })
+  */
+    
+//makes the line you clicked on red and removes the color from the other li item
+$(document).on('click', 'li', function () {
+    $(this).addClass('active')
+    $(this).siblings().removeClass('active')
+  })
+
+
+//removes li item and colors the siblings red.
+/*
+$(document).on('click', 'li', function () {
+    $(this).siblings().addClass('active')
+    $(this).remove()
+  })
+ */
+
+
+
+

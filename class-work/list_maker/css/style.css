@@ -47,3 +47,11 @@ button {
 	box-shadow: none;
 	padding: 10px;
 }
+
+#list{
+  cursor: pointer;
+}
+
+.active {
+  color: red;
+}

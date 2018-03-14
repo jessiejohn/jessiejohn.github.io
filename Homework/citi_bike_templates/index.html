@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CitiBike Templates</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 class="title">CitiBike Stations</h1>
+  <div id="stations"></div>
+
+<script id="station-template" type="text/x-handlebars-template">
+{{#each this}}
+	<div class="station">
+ 	<div class="station-title">{{name}}</div>
+  	<div class="station-data">
+    <div class="station-bikes">Bikes free: {{bikes}}</div>
+    <div class="station-spaces">Spaces free: {{free}}</div>
+  </div>
+</div>
+{{/each}}
+</script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
