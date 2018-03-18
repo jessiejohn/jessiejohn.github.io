@@ -9,13 +9,22 @@ body {
   justify-content: center;
 }
 
+
+#map {
+  height: 100%;
+  width:50%;
+}
+
 .container {
   background: rgba(222, 222, 222, 0.9);
   border-radius: 3px;
   padding: 20px;
+  width:50%;
 }
+
 
 body {
   background: url(http://maristpoll.marist.edu/wp-content/uploads/2017/02/RB_2014_01_14_0587_ed-2_Official-Photo-FEATURED-IMAGE.jpg);
   background-size: cover;
 }
+

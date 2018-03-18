@@ -1,5 +1,7 @@
 html,body {
-	margin: 20px;
+	margin: 2px;
+    height:1000px;
+    font-family:'Courier New', monospace;
 }
 
 header {
@@ -9,16 +11,28 @@ header {
     background-size:cover;
     height:300px;
     width:100%;
-    margin:10px;
+    margin:2px;
 }
+
 
 h1{
 	font-size: 40px;
-    padding-top: 180px;
-    color:white;
+    padding-top: 150px;
+    color:black;
 }  
 
+h1 span { 
+    background-color: #F8F8FF; 
+}
 
+h2 {
+    font-size: 20px;
+    padding-top: 10px;
+    color:black;
+}
+h2 span { 
+    background-color: #F8F8FF; 
+}
 p {
     font-size:20px;
     padding: 5px;
@@ -29,18 +43,59 @@ ul {
     padding: 30px;
 }
 
-.left {
+
+/*.introduction {
     float:left;
-    width:30%;
-    height:500px;
-    background: grey;
-    padding-top: 40px;
+    width:10%;
+    height:200px;
+    background: #00CED1;
+}*/
+
+.one {
+    float:left;
+    width:33%;
+    height:200px;
+    background: #00CED1;
+}
+
+.two {
+    float:left;
+    width:33%;
+    height:200px;
+    background: #00CED1;
+}
+
+.three {
+    float:left;
+    width:34%;
+    height:200px;
+    background: #00CED1;
 }
 
 #map {
-    float:right;
-	height: 500px;
-	width:70%;
-    padding-top: 40px;
-}   
+    float:bottom;
+	height: 700px;
+	width:100%;
+    margin-top: 4px;
+}  
 
+#input {
+    width:400px;
+    margin:10px;
+}
+
+#button {
+    width:100px;
+    height:30px;
+    margin:10px;
+}
+#buttonTwo {
+    width:100px;
+    height:30px;
+    margin:10px;
+    margin-top: 50px;
+}
+
+#list {
+    cursor: pointer;
+}

@@ -19,25 +19,25 @@ and alert the user with using the "alert" method
 //find add-item, when click occurs i want you to run the function addNewItem
 
 
-/*
-document.querySelector('#add-item').onclick = addNewItem
 
-function addNewItem(){
+// document.querySelector('#add-item').onclick = addNewItem
 
-	var newItem = document.querySelector('#new-item').value
+// function addNewItem(){
 
-	if (newItem ==="") {
-		alert("No entry")
-	}
-	var newListItem =document.createElement('li')
+// 	var newItem = document.querySelector('#new-item').value
 
-	newListItem.innerHTML=newItem
+// 	if (newItem ==="") {
+// 		alert("No entry")
+// 	}
+// 	else {var newListItem =document.createElement('li')}
 
-	document.querySelector('#list').appendChild(newListItem)
+// 	newListItem.innerHTML=newItem
 
-	document.querySelector('#new-item').value=("")
-}
-*/
+// 	document.querySelector('#list').appendChild(newListItem)
+
+// 	document.querySelector('#new-item').value=("")//makes the input tab blank again for new entry
+// }
+
 
 
 /*
@@ -64,31 +64,16 @@ function addNewItem () {
 	}
 	else {
 		$("#list").append('<li>' +newItem +'</li>')
-		$('#new-item').val("")
-		$('#new-item').focus()
+		$('#new-item').val("") //makes the input tab blank again
+		$('#new-item').focus() //highlights the input tab and outs cursor there to add items.
 	}
 } 
 
 // Removes the li you click on
-/*$(document).on('click', 'li', function () {
+$(document).on('click', 'li', function () {
     $(this).remove()
   })
-  */
-    
-//makes the line you clicked on red and removes the color from the other li item
-$(document).on('click', 'li', function () {
-    $(this).addClass('active')
-    $(this).siblings().removeClass('active')
-  })
 
-
-//removes li item and colors the siblings red.
-/*
-$(document).on('click', 'li', function () {
-    $(this).siblings().addClass('active')
-    $(this).remove()
-  })
- */
 
 
 

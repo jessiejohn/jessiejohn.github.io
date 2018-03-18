@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 
 <head>
-  
 <link href="style.css" rel='stylesheet'>
 <title>Restaurant Wishlist</title>
-
 </head>
 
 <body>
 
-<header> 
+	<header> 	
+		<h1><span>Restaurant Wish List </span></h1> 
+		<h2><span> with 3 easy steps</span></h2>
+	</header>
 
-<h1>Restaurant List </h1>
+<div class = 'all'>
+	<!-- <div class='introduction'>
+  		<p> Create a wishlist of restaurants <br> with three easy steps </p>
+  	</div> -->
 
-</header>
+  	<div class = one>
+  		<p>1. Search restaurants you wish to go to </p>
+  		<input id="input", type = "Restaurant" placeholder ="enter name of restaurant">
+  		<button id="button"> Search </button>
+  		<p> Your wishlist </p>
+  		
+	</div>
 
-<div>
+	<div class = two>
+		<p> 2. Mark restaurant on the map. <br> And add it to your list</p>  
+		<button id="buttonTwo"> Add to list </button>
+  	</div>
 
-<div class = 'left'>
-  
-  <p> Create a wishlist of restaurants you would like to visit with three easy steps </p>
+  	<div class =three>
+  		<p> 3.List of marked restaurants </p>
+  		<ul id = "list"></ul>
+  	</div>
+ </div>	
+	
+	<div id='map'>  </div>
 
-  <p>1. Search restaurants you wish to go to </p>
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 
-  <input type = "Restaurant" placeholder ="enter name of restaurant" id="input">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2VjCjJhDitjDcAGRoFYpPLzlykrsHQ4o&libraries=places"></script>
 
-  <button id="button"> Search </button>
-
-  <p> Your wishlist </p>
-
-  <ul id = "list"></ul>
-
-  <p> 2. Mark restaurant on the map. All marked restaurants will appear below </p>  
-  
-  <p> 3. When out and about, look for the restaurants by switching on your GPS and looking at the map to see marked spots </p>
-    
-
-</div>
-
-<div id='map'> </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2VjCjJhDitjDcAGRoFYpPLzlykrsHQ4o&libraries=places"></script>
-
-<script src='script.js'></script>
+	<script src='script.js'></script>
 
 
 </body>
