@@ -46,7 +46,7 @@ $.ajax({
     type: 'GET',
     url: 'https://api.coinbase.com/v2/prices/BTC-USD/buy',
     success: function(response) {
-    console.log(response)   
+    //console.log(response) //just so we can see the details of what is being fetched  
     $("#btc-value").html(response.data.amount)
     }
 })

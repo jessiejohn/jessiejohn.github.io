@@ -1,7 +1,7 @@
 html,body {
 	margin: 2px;
     height:1000px;
-    font-family:'Courier New', monospace;
+    font-family:"Courier New", monospace;
 }
 
 header {
@@ -14,8 +14,7 @@ header {
     margin:2px;
 }
 
-
-h1{
+h1 {
 	font-size: 40px;
     padding-top: 150px;
     color:black;
@@ -30,9 +29,11 @@ h2 {
     padding-top: 10px;
     color:black;
 }
+
 h2 span { 
     background-color: #F8F8FF; 
 }
+
 p {
     font-size:20px;
     padding: 5px;
@@ -43,29 +44,21 @@ ul {
     padding: 30px;
 }
 
-
-/*.introduction {
-    float:left;
-    width:10%;
-    height:200px;
-    background: #00CED1;
-}*/
-
-.one {
+.firstDiv {
     float:left;
     width:33%;
     height:200px;
     background: #00CED1;
 }
 
-.two {
+.secondDiv {
     float:left;
     width:33%;
     height:200px;
     background: #00CED1;
 }
 
-.three {
+.thirdDiv {
     float:left;
     width:34%;
     height:200px;
@@ -88,12 +81,15 @@ ul {
     width:100px;
     height:30px;
     margin:10px;
+    cursor: pointer;
 }
+
 #buttonTwo {
     width:100px;
     height:30px;
     margin:10px;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 #list {

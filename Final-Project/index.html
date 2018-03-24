@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-<link href="style.css" rel='stylesheet'>
-<title>Restaurant Wishlist</title>
+	<title>Restaurant Wishlist</title>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -12,35 +17,30 @@
 		<h2><span> with 3 easy steps</span></h2>
 	</header>
 
-<div class = 'all'>
-	<!-- <div class='introduction'>
-  		<p> Create a wishlist of restaurants <br> with three easy steps </p>
-  	</div> -->
 
-  	<div class = one>
+  	<div class = "firstDiv">
   		<p>1. Search restaurants you wish to go to </p>
   		<input id="input", type = "Restaurant" placeholder ="enter name of restaurant">
-  		<button id="button"> Search </button>
-  		<p> Your wishlist </p>
-  		
+  		<button class="button btn-primary"> Search </button>
 	</div>
 
-	<div class = two>
+	<div class = "secondDiv">
 		<p> 2. Mark restaurant on the map. <br> And add it to your list</p>  
-		<button id="buttonTwo"> Add to list </button>
+		<button class="buttonTwo btn-primary"> Add to list </button>
   	</div>
 
-  	<div class =three>
+  	<div class = "thirdDiv">
   		<p> 3.List of marked restaurants </p>
   		<ul id = "list"></ul>
   	</div>
- </div>	
 	
-	<div id='map'>  </div>
+	<div id= "map"></div>
+
 
 	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2VjCjJhDitjDcAGRoFYpPLzlykrsHQ4o&libraries=places"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2VjCjJhDitjDcAGRoFYpPLzlykrsHQ4o&libraries=places&callback=initAutocomplete" async defer>
+	</script>
 
 	<script src='script.js'></script>
 

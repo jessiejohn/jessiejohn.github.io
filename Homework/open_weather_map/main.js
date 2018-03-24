@@ -30,7 +30,7 @@ In this exercise, you will be leveraging the Open Weather Map API to fetch weath
 
 // PART 1:
 var API_KEY = 'bf051e197da4655b52447684d8d279d3'
-var URL = 'http://api.openweathermap.org/data/2.5/weather?q=las+vegas,us&units=metric&APPID=bf051e197da4655b52447684d8d279d3'
+var URL = 'http://api.openweathermap.org/data/2.5/weather?q=new+york,us&units=metric&APPID=bf051e197da4655b52447684d8d279d3'
 
 // can't touch this - dunnn dun dun dun
 $.ajax({
@@ -41,7 +41,7 @@ $.ajax({
 
 // PART 2 (and possibly 3 and 4):
 function handleSuccess(response) {
-  console.log(response)
+  // console.log(response) was required to get the coordinates)
   $("#nyc-weather").append('<h2>'+ response.main.temp + '°C' +'</h2>').append('<h2>'+ response.main.humidity + ' Humidity' +'</h2>').append('<h2>'+ response.wind.speed+' Wind' + '</h2>')
   if (response.main.temp <= 10) {
   $('body').css('background','red')
