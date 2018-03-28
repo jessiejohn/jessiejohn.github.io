@@ -27,14 +27,13 @@
 */
 
 
-// navigator.geolocation.getCurrentPosition(handleResponse)
+function handleResponse(position) {
+  console.log(position)
+  buildMap(position.coords.latitude, position.coords.longitude)
+  fetchWeather(position.coords.latitude, position.coords.longitude)
+ }
 
-// function handleResponse(position) {
-//   console.log(position)
-//   buildMap(position.coords.latitude, position.coords.longitude)
-//   fetchWeather(position.coords.latitude, position.coords.longitude)
-//   }
-
+navigator.geolocation.getCurrentPosition(handleResponse)
 
 
 
@@ -49,15 +48,15 @@
 */
 
 
-// function buildMap (latitude, longitude) {
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//   center: {
-//     lat: latitude, 
-//     lng: longitude
-//   },
-//   zoom: 15
-//   });
-// }
+function buildMap (latitude, longitude) {
+  var map = new google.maps.Map(document.getElementById('map'), {
+  center: {
+    lat: latitude, 
+    lng: longitude
+  },
+  zoom: 15
+  });
+}
 
 
 
@@ -75,34 +74,9 @@
   6. Call the function, "fetchWeather", from within "handleResponse" above (be sure to pass it the correct arguments)
 */
 
-// function fetchWeather (latitude, longitude) {
-//   var URL='https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + latitude + '&lon=' + longitude + '&APPID=bf051e197da4655b52447684d8d279d3'
-//   console.log (URL)
-//   $.ajax({
-//   type: 'GET',
-//   url: URL,
-//   success: function (response) {
-//     $("#weather").append('<h2>'+ response.main.temp +'</h2>')
-//   }
-// })
-// }
-
-
-
-//attempt to compile all of the above together. 
-
-navigator.geolocation.getCurrentPosition(handleResponse)
-
-function handleResponse(position) {
-  console.log(position)
-  var map = new google.maps.Map(document.getElementById('map'), {
-  center: {
-    lat: position.coords.latitude, 
-    lng: position.coords.longitude
-  },
-  zoom: 15
-  });
-   var URL='https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + latitude + '&lon=' + longitude + '&APPID=bf051e197da4655b52447684d8d279d3'
+function fetchWeather (latitude, longitude) {
+  var URL='https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + latitude + '&lon=' + longitude + '&APPID=bf051e197da4655b52447684d8d279d3'
+  console.log (URL)
   $.ajax({
   type: 'GET',
   url: URL,
@@ -110,9 +84,34 @@ function handleResponse(position) {
     $("#weather").append('<h2>'+ response.main.temp +'</h2>')
   }
 })
+}
 
 
-  }
+
+//attempt to compile all of the above together. 
+
+// navigator.geolocation.getCurrentPosition(handleResponse)
+
+// function handleResponse(position) {
+//   console.log(position)
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//   center: {
+//     lat: position.coords.latitude, 
+//     lng: position.coords.longitude
+//   },
+//   zoom: 15
+//   });
+//    var URL='https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + latitude + '&lon=' + longitude + '&APPID=bf051e197da4655b52447684d8d279d3'
+//   $.ajax({
+//   type: 'GET',
+//   url: URL,
+//   success: function (response) {
+//     $("#weather").append('<h2>'+ response.main.temp +'</h2>')
+//   }
+// })
+
+
+// }
 
 
 
