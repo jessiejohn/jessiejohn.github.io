@@ -1,34 +1,34 @@
-//Launches map with zoomed in on nyc. 
-//var wishList = []
+
 var currentSearchResult
 var map
 
 function initAutocomplete() {
 
-    // to open map to users location
-    // var map = new google.maps.Map(document.getElementById('map'))
-    // //opens map to the location for the user.
-    // navigator.geolocation.getCurrentPosition(handleResponse)
-    // function handleResponse(position) {
+    //to open map to users location
+    var map = new google.maps.Map(document.getElementById('map'))
+    //opens map to the location for the user.
+    navigator.geolocation.getCurrentPosition(handleResponse)
+    function handleResponse(position) {
 
-    //   console.log(position)
-    //   var map = new google.maps.Map(document.getElementById('map'), {
+      console.log(position)
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: position.coords.latitude, 
+          lng: position.coords.longitude
+        },
+        zoom: 17
+      });
+    }
+
+    //Launches map with zoomed in on nyc. 
+    // https://developers.google.com/maps/documentation/javascript/reference/3.exp/map
+    // map = new google.maps.Map(document.getElementById('map'), {
     //     center: {
-    //       lat: position.coords.latitude, 
-    //       lng: position.coords.longitude
+    //         lat: 40.7128,
+    //         lng: -74.0060
     //     },
     //     zoom: 10
-    //   });
-    // }
-
-    // https://developers.google.com/maps/documentation/javascript/reference/3.exp/map
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 40.7128,
-            lng: -74.0060
-        },
-        zoom: 10
-    });
+    // });
 
     //https://developers.google.com/maps/documentation/javascript/reference/3.exp/places-widget#SearchBox    
     var searchBox = new google.maps.places.SearchBox(document.getElementById('input'));
@@ -104,9 +104,6 @@ function initAutocomplete() {
     })
 }
 
-
-
-
 //To create list of items searched
 $('.buttonTwo').click(addNewItem)
 
@@ -153,10 +150,10 @@ function addNewItem() {
 
 
 //changes colour on div boxes
-$('.firstDiv, .secondDiv, .thirdDiv').mouseenter(function() {
-    $(this).css('background', '#00FFFF')
+$('.firstDiv, .secondDiv').mouseenter(function() {
+    $(this).css('background', '#F5FFFA')
 })
 
-$('.firstDiv, .secondDiv, .thirdDiv').mouseleave(function() {
-    $(this).css('background', '#00CED1')
+$('.firstDiv, .secondDiv').mouseleave(function() {
+    $(this).css('background', '#F5F5F5')
 })

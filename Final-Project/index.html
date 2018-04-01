@@ -14,26 +14,27 @@
 
 	<header> 	
 		<h1><span>Restaurant Wish List </span></h1> 
-		<h2><span> with 3 easy steps</span></h2>
+
 	</header>
 
+	<div class = 'index'>
+		<div class="head"></div>
+  		<div class = "firstDiv">
+  			<p> Search the restaurant</p>
+  			<input id="input", type = "Restaurant" placeholder ="enter name of restaurant">
+		</div>
 
-  	<div class = "firstDiv">
-  		<p>1. Search restaurants you wish to go to </p>
-  		<input id="input", type = "Restaurant" placeholder ="enter name of restaurant">
-  		<button class="button btn-primary"> Search </button>
+		<div class = "secondDiv">
+			<p> Add it to your wish list</p>  
+			<button class="buttonTwo btn-success btn-lg"> Add to wish list </button>
+  		</div>
+
+  		<div class = "thirdDiv">
+  			<p> Your wish list </p>
+  			<ul id = "list"></ul>
+  		</div>
 	</div>
 
-	<div class = "secondDiv">
-		<p> 2. Mark restaurant on the map. <br> And add it to your list</p>  
-		<button class="buttonTwo btn-primary"> Add to list </button>
-  	</div>
-
-  	<div class = "thirdDiv">
-  		<p> 3.List of marked restaurants </p>
-  		<ul id = "list"></ul>
-  	</div>
-	
 	<div id= "map"></div>
 
 

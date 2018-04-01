@@ -1,41 +1,32 @@
 html,body {
 	margin: 2px;
-    height:1000px;
+    height:100%;
     font-family:"Courier New", monospace;
 }
 
 header {
-    background-image: url("Pictures/NYCskyline.png");
+    background-image: url("Pictures/Picture2.jpg");
     padding-top: 10px;
     text-align: center;
-    background-size:cover;
+    background-size:contain;
     height:300px;
     width:100%;
     margin:2px;
 }
 
 h1 {
-	font-size: 40px;
-    padding-top: 150px;
-    color:black;
+	font-size: 40vw;
+    padding-top:180px;
+    color: black;
 }  
 
 h1 span { 
     background-color: #F8F8FF; 
-}
-
-h2 {
-    font-size: 20px;
-    padding-top: 10px;
-    color:black;
-}
-
-h2 span { 
-    background-color: #F8F8FF; 
+    padding:30px;
 }
 
 p {
-    font-size:20px;
+    font-size:1.5vw;
     padding: 5px;
 }
 
@@ -44,52 +35,49 @@ ul {
     padding: 30px;
 }
 
-.firstDiv {
+.index {
+    display: block;
     float:left;
-    width:33%;
-    height:200px;
-    background: #00CED1;
+    width:25%;
+    height:100%;
+    background: #F5F5F5;
+    border:1px solid #9ACD32;
+}
+
+.head {
+    height:2%;
+    background-color: #9ACD32;
+}
+.firstDiv {
+    height:20%;
+    background: #F5F5F5;
+    border:1px solid #9ACD32;
 }
 
 .secondDiv {
-    float:left;
-    width:33%;
-    height:200px;
-    background: #00CED1;
+    height:20%;
+    background: #F5F5F5;
+    margin-top: 5px;
+    border:1px solid #9ACD32;
 }
 
 .thirdDiv {
-    float:left;
-    width:34%;
-    height:200px;
-    background: #00CED1;
+    background: #F5F5F5;
+    position:relative;
+    margin-top: 5px;
 }
 
 #map {
-    float:bottom;
-	height: 700px;
-	width:100%;
-    margin-top: 4px;
+    float:right;
+	height: 100%;
+	width:75%;
+
 }  
 
 #input {
     width:400px;
+    height:40px;
     margin:10px;
-}
-
-#button {
-    width:100px;
-    height:30px;
-    margin:10px;
-    cursor: pointer;
-}
-
-#buttonTwo {
-    width:100px;
-    height:30px;
-    margin:10px;
-    margin-top: 50px;
-    cursor: pointer;
 }
 
 #list {
