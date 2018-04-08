@@ -1,34 +1,33 @@
-
 var currentSearchResult
 var map
 
 function initAutocomplete() {
 
     //to open map to users location
-    var map = new google.maps.Map(document.getElementById('map'))
-    //opens map to the location for the user.
-    navigator.geolocation.getCurrentPosition(handleResponse)
-    function handleResponse(position) {
+    // var map = new google.maps.Map(document.getElementById('map'))
+    // //opens map to the location for the user.
+    // navigator.geolocation.getCurrentPosition(handleResponse)
+    // function handleResponse(position) {
 
-      console.log(position)
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-          lat: position.coords.latitude, 
-          lng: position.coords.longitude
-        },
-        zoom: 17
-      });
-    }
+    //   //console.log(position)
+    //   var map = new google.maps.Map(document.getElementById('map'), {
+    //     center: {
+    //       lat: position.coords.latitude, 
+    //       lng: position.coords.longitude
+    //     },
+    //     zoom: 17
+    //   });
+    // }
 
     //Launches map with zoomed in on nyc. 
-    // https://developers.google.com/maps/documentation/javascript/reference/3.exp/map
-    // map = new google.maps.Map(document.getElementById('map'), {
-    //     center: {
-    //         lat: 40.7128,
-    //         lng: -74.0060
-    //     },
-    //     zoom: 10
-    // });
+    //https://developers.google.com/maps/documentation/javascript/reference/3.exp/map
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 40.7128,
+            lng: -74.0060
+        },
+        zoom: 10
+    });
 
     //https://developers.google.com/maps/documentation/javascript/reference/3.exp/places-widget#SearchBox    
     var searchBox = new google.maps.places.SearchBox(document.getElementById('input'));
@@ -124,7 +123,7 @@ function addNewItem() {
     }
 }
 
-//$('.buttonThree').click(wishList)
+// $('.buttonThree').click(wishList)
 
 
 // $('#buttonTwo').click(addMarker)

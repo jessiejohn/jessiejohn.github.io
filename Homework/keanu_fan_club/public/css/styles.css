@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+ 
+}
+
+.fa {
+  cursor: pointer;
+  padding-left: 3px;
+}
+
+#sign-out {
+  color:white;
+}
+#message-board-container,
+#sign-in-container {
+    display: none;
+  }

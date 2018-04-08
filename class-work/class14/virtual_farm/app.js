@@ -20,10 +20,30 @@ Instructions:
 
 */
 
-// CODE HERE
+function FarmAnimal (name,sound,image) {
+	this.name = name
+	this.sound = sound
+	this.image =image
+}
+
+FarmAnimal.prototype.talk = function() {
+	alert(this.name + this.sound)
+}
+
+var dog = new FarmAnimal ('Mickey', 'BowBow', 'http://petcyclopedia.com/img/pets/dog/chiweenie.jpg')
+var cat = new FarmAnimal ('Tabby', 'MewoMeow', 'https://www.patiliyo.com/wp-content/uploads/2017/07/ruyada-kedi-gormek.jpg')
+var pig = new FarmAnimal ('Moshy', 'Squeal', 'https://kids.nationalgeographic.com/content/dam/kids/photos/animals/Mammals/H-P/pig-fence.adapt.945.1.jpg')
+
+
+
+
 
 // push all animal instances here, ex: farmAnimals.push(rooster)
 var farmAnimals = [];
+
+farmAnimals.push(dog);
+farmAnimals.push(cat);
+farmAnimals.push(pig);
 
 farmAnimals.forEach(function(animal) {
 	var bottom = Math.floor(Math.random() * 75) + '%'
