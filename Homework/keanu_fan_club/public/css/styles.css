@@ -1,6 +1,13 @@
 body {
   background-color: black;
- 
+}
+
+.navbar-inverse {
+    background-color:#fdd032;
+}
+
+.navbar-header {
+    color: black;
 }
 
 .fa {
@@ -9,8 +16,9 @@ body {
 }
 
 #sign-out {
-  color:white;
+  color:black;
 }
+
 #message-board-container,
 #sign-in-container {
     display: none;
