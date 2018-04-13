@@ -1,3 +1,12 @@
+//changes colour on div boxes
+$('.firstDiv, .secondDiv').mouseenter(function() {
+    $(this).css('background', '#FFFAFA')
+})
+
+$('.firstDiv, .secondDiv').mouseleave(function() {
+    $(this).css('background', '#F5F5F5')
+})
+
 var currentSearchResult
 var map
 
@@ -97,68 +106,29 @@ function initAutocomplete() {
         map.fitBounds(bounds);
 
         //adds items to the wishList array
-
-
-
     })
 }
 
 //To create list of items searched
-$('.buttonTwo').click(addNewItem)
+// $('.buttonTwo').click(addNewItem)
 
-function addNewItem() {
-    var newItem = $('#input').val()
-    if (newItem === "") {
-        alert("No entry")
-        $('#input').focus() //highlights input tab
-    } else {
-        $("#list").append('<li>' + newItem + '</li>')
-        $('#input').focus() //highlights the input tab and outs cursor there to add items.
-        new google.maps.Marker({
-            map: map,
-            position: currentSearchResult.position,
-
-        })
-    }
-}
-
-// $('.buttonThree').click(wishList)
-
-
-// $('#buttonTwo').click(addMarker)
-// function addMarker (locations) {
-//   locations.forEach (function(location){
-//     var marker = new google.maps.Marker({
-//       position: {
-//         lat:  location.position.lat
-//         lng:  location.position.lng
-//       }
-//       map: map,
-//       title: 'wishlist'
+// function addNewItem() {
+//     var newItem = $('#input').val()
+//     if (newItem === "") {
+//         alert("No entry")
+//         $('#input').focus() //highlights input tab
+//     } else {
+//         $("#list").append('<li>' + newItem + '</li>')
+//         $('#input').focus() //highlights the input tab and outs cursor there to add items.
+//         new google.maps.Marker({
+//             map: map,
+//             position: currentSearchResult.position  
+//         })
+//     }
 // }
 
 
-// pull marker from markers array and create new google.maps.Marker
-// get lat and lng using:
-// markers[0].position.lat()
-// markers[0].position.lng()
-
-//creates list of new items.
-
-
-
-//changes colour on div boxes
-$('.firstDiv, .secondDiv').mouseenter(function() {
-    $(this).css('background', '#F5FFFA')
-})
-
-$('.firstDiv, .secondDiv').mouseleave(function() {
-    $(this).css('background', '#F5F5F5')
-})
-
-
-// copied from keanu project
-  // Get a reference to the root of the Database
+// Get a reference to the root of the Database
 var restaurantWishList = firebase.database()
   // Create a section for messages data in your db
 var restaurantsList = restaurantWishList.ref('restaurants')
@@ -166,11 +136,15 @@ var restaurantsList = restaurantWishList.ref('restaurants')
 $('.buttonTwo').click(function (event){
     event.preventDefault()
         var restaurantName = $('#input').val()
-        console.log(restaurantName)
+        //console.log(restaurantName)
+        // var markerIcon =  new google.maps.Marker({
+        //         map: map,
+        //         position: currentSearchResult.position})
+
         restaurantsList.push({
             restaurant: restaurantName,
             votes: 0,
-            //liked: true,
+            //flag: markerIcon,
             user: firebase.auth().currentUser.displayName,
         })
 
@@ -186,10 +160,14 @@ function getFanMessages() {
             var votes = entity.votes
             var user = entity.user
             var restaurant = entity.restaurant
+            var flag=entity.flag
             var id = rest.key
+
+           
+
             //console.log(message, id)
             //below we add $ to the variable name just to make it clear its jquery. dont have to. its to make it very clear is jquery
-            console.log(entity)
+            //console.log(entity)
             var $li = $('<li>').text(restaurant)
             // Create up vote element
             var $upVoteElement = $('<i class="fa fa-thumbs-up pull-right">')
@@ -236,6 +214,7 @@ function deleteMessage(id) {
 
 getFanMessages()
 
+//authentication
 var ui = new firebaseui.auth.AuthUI(firebase.auth())
     
 var uiConfig = {
@@ -253,21 +232,13 @@ ui.start('#firebaseui-auth-container', uiConfig)
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         $('#sign-in-container').hide()
-        $('#index').show()
+        $('#index,#map').show()
     } else {
       $('#sign-in-container').show()
-      $('#index').hide()
+      $('#index,#map').hide()
     }
 })
 
 $('#sign-out').click(function() {
     firebase.auth().signOut()
 })
-
-
-
-
-
-
-
-

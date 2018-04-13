@@ -4,8 +4,8 @@ var map
 function initAutocomplete() {
 
     //to open map to users location
-    // var map = new google.maps.Map(document.getElementById('map'))
-    // //opens map to the location for the user.
+    var map = new google.maps.Map(document.getElementById('map'))
+    //opens map to the location for the user.
     // navigator.geolocation.getCurrentPosition(handleResponse)
     // function handleResponse(position) {
 
@@ -113,7 +113,6 @@ function addNewItem() {
         $('#input').focus() //highlights input tab
     } else {
         $("#list").append('<li>' + newItem + '</li>')
-        $('#input').val("") //makes the input tab blank again
         $('#input').focus() //highlights the input tab and outs cursor there to add items.
         new google.maps.Marker({
             map: map,
@@ -150,10 +149,125 @@ function addNewItem() {
 
 //changes colour on div boxes
 $('.firstDiv, .secondDiv').mouseenter(function() {
-    $(this).css('background', '#F5FFFA')
+    $(this).css('background', '#FFFAFA')
 })
 
 $('.firstDiv, .secondDiv').mouseleave(function() {
     $(this).css('background', '#F5F5F5')
 })
+
+
+// copied from keanu project
+  // Get a reference to the root of the Database
+var restaurantWishList = firebase.database()
+  // Create a section for messages data in your db
+var restaurantsList = restaurantWishList.ref('restaurants')
+
+$('.buttonTwo').click(function (event){
+    event.preventDefault()
+        var restaurantName = $('#input').val()
+        console.log(restaurantName)
+        restaurantsList.push({
+            restaurant: restaurantName,
+            votes: 0,
+            //liked: true,
+            user: firebase.auth().currentUser.displayName,
+        })
+
+    $('#input').val('')
+})
+
+function getFanMessages() {
+    // listens for changes to the `messages` node in the DB
+    restaurantWishList.ref('restaurants').on('value', function (results) {
+        $('#list').empty()
+        results.forEach(function (rest) {
+            var entity = rest.val()
+            var votes = entity.votes
+            var user = entity.user
+            var restaurant = entity.restaurant
+            var id = rest.key
+            //console.log(message, id)
+            //below we add $ to the variable name just to make it clear its jquery. dont have to. its to make it very clear is jquery
+            console.log(entity)
+            var $li = $('<li>').text(restaurant)
+            // Create up vote element
+            var $upVoteElement = $('<i class="fa fa-thumbs-up pull-right">')
+            $upVoteElement.on('click', function () {
+                updateMessage(id, ++votes)
+            })
+
+            // Create down vote element
+            var $downVoteElement = $('<i class="fa fa-thumbs-down pull-right">')
+            $downVoteElement.on('click', function () {
+                updateMessage(id, --votes)
+                //$(this).css('color','red')
+            })
+
+            // create delete element
+            var $deleteElement = $('<i class="fa fa-trash pull-right delete"></i>')
+            $deleteElement.on('click', function () {
+                deleteMessage(id)
+            })
+
+            $li.append($deleteElement)
+            $li.append($downVoteElement)
+            $li.append($upVoteElement) 
+            //$li.append('<div class="pull-right">' + votes + '</div>')
+            $('#list').append($li)
+        })
+    })
+}
+
+function updateMessage (id, votes) {
+    // find message whose objectId is equal to the id we're searching with
+    var restaurantsList = restaurantWishList.ref('restaurants/' + id)
+    // update votes property
+    restaurantsList.update({
+        votes: votes,
+    })
+}
+
+function deleteMessage(id) {
+    // find message whose objectId is equal to the id we're searching with
+    var restaurantsList = restaurantWishList.ref('restaurants/' + id)
+    restaurantsList.remove()
+}
+
+getFanMessages()
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth())
+    
+var uiConfig = {
+    callbacks: {
+        signInSuccessWithAuthResult: function() {
+            return false;
+        },
+    },
+    //below provides paths to sign in. So you can add multiple paths like gmail etc.https://firebase.google.com/docs/auth/web/firebaseui
+    signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID,],
+}
+
+ui.start('#firebaseui-auth-container', uiConfig)
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        $('#sign-in-container').hide()
+        $('#index,#map').show()
+    } else {
+      $('#sign-in-container').show()
+      $('#index,#map').hide()
+    }
+})
+
+$('#sign-out').click(function() {
+    firebase.auth().signOut()
+})
+
+
+
+
+
+
+
 
