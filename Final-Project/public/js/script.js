@@ -13,13 +13,13 @@ var map
 function initAutocomplete() {
 
     //to open map to users location
-    var map = new google.maps.Map(document.getElementById('map'))
-    //opens map to the location for the user.
+    //var map = new google.maps.Map(document.getElementById('map'))
+   // opens map to the location for the user.
     // navigator.geolocation.getCurrentPosition(handleResponse)
     // function handleResponse(position) {
 
-    //   //console.log(position)
-    //   var map = new google.maps.Map(document.getElementById('map'), {
+    //console.log(position)
+    //   map = new google.maps.Map(document.getElementById('map'), {
     //     center: {
     //       lat: position.coords.latitude, 
     //       lng: position.coords.longitude
@@ -109,7 +109,7 @@ function initAutocomplete() {
     })
 }
 
-//To create list of items searched
+// //To create list of items searched
 // $('.buttonTwo').click(addNewItem)
 
 // function addNewItem() {
@@ -121,83 +121,85 @@ function initAutocomplete() {
 //         $("#list").append('<li>' + newItem + '</li>')
 //         $('#input').focus() //highlights the input tab and outs cursor there to add items.
 //         new google.maps.Marker({
-//             map: map,
-//             position: currentSearchResult.position  
+//                 map: map,
+//                 icon:icon,
+//                 title:place.name,
+//                 position: currentSearchResult.position  
 //         })
 //     }
-// }
+//  }
+
 
 
 // Get a reference to the root of the Database
 var restaurantWishList = firebase.database()
-  // Create a section for messages data in your db
+// Create a section for messages data in your db
 var restaurantsList = restaurantWishList.ref('restaurants')
 
-$('.buttonTwo').click(function (event){
+$('.buttonTwo').click(function(event) {
     event.preventDefault()
-        var restaurantName = $('#input').val()
-        //console.log(restaurantName)
-        // var markerIcon =  new google.maps.Marker({
-        //         map: map,
-        //         position: currentSearchResult.position})
-
-        restaurantsList.push({
-            restaurant: restaurantName,
-            votes: 0,
-            //flag: markerIcon,
-            user: firebase.auth().currentUser.displayName,
-        })
-
+    var restaurantName = $('#input').val()
+    restaurantsList.push({
+        restaurant: restaurantName,
+        votes: 0,
+        position: currentSearchResult.position,
+        user: firebase.auth().currentUser.displayName,
+    })
     $('#input').val('')
 })
 
 function getFanMessages() {
     // listens for changes to the `messages` node in the DB
-    restaurantWishList.ref('restaurants').on('value', function (results) {
+    restaurantWishList.ref('restaurants').on('value', function(results) {
         $('#list').empty()
-        results.forEach(function (rest) {
+        results.forEach(function(rest) {
             var entity = rest.val()
             var votes = entity.votes
             var user = entity.user
+            var position = entity.position
             var restaurant = entity.restaurant
-            var flag=entity.flag
+            //var flag = entity.flag
             var id = rest.key
-
-           
+            var markerIcon = new google.maps.Marker({
+                map: map,
+                position: position,
+            })
 
             //console.log(message, id)
             //below we add $ to the variable name just to make it clear its jquery. dont have to. its to make it very clear is jquery
             //console.log(entity)
             var $li = $('<li>').text(restaurant)
+            //var $map = $('#map').append(flag)
+
             // Create up vote element
             var $upVoteElement = $('<i class="fa fa-thumbs-up pull-right">')
-            $upVoteElement.on('click', function () {
+            $upVoteElement.on('click', function() {
                 updateMessage(id, ++votes)
             })
 
             // Create down vote element
             var $downVoteElement = $('<i class="fa fa-thumbs-down pull-right">')
-            $downVoteElement.on('click', function () {
+            $downVoteElement.on('click', function() {
                 updateMessage(id, --votes)
                 //$(this).css('color','red')
             })
 
             // create delete element
             var $deleteElement = $('<i class="fa fa-trash pull-right delete"></i>')
-            $deleteElement.on('click', function () {
+            $deleteElement.on('click', function() {
                 deleteMessage(id)
             })
 
             $li.append($deleteElement)
             $li.append($downVoteElement)
-            $li.append($upVoteElement) 
-            //$li.append('<div class="pull-right">' + votes + '</div>')
+            $li.append($upVoteElement)
+            $li.append('<div class="pull-right">' + votes + '</div>')
             $('#list').append($li)
         })
     })
 }
 
-function updateMessage (id, votes) {
+function updateMessage(id, votes) {
     // find message whose objectId is equal to the id we're searching with
     var restaurantsList = restaurantWishList.ref('restaurants/' + id)
     // update votes property
@@ -216,7 +218,7 @@ getFanMessages()
 
 //authentication
 var ui = new firebaseui.auth.AuthUI(firebase.auth())
-    
+
 var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function() {
@@ -224,7 +226,7 @@ var uiConfig = {
         },
     },
     //below provides paths to sign in. So you can add multiple paths like gmail etc.https://firebase.google.com/docs/auth/web/firebaseui
-    signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID,],
+    signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID, ],
 }
 
 ui.start('#firebaseui-auth-container', uiConfig)
@@ -234,8 +236,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#sign-in-container').hide()
         $('#index,#map').show()
     } else {
-      $('#sign-in-container').show()
-      $('#index,#map').hide()
+        $('#sign-in-container').show()
+        $('#index,#map').hide()
     }
 })
 
